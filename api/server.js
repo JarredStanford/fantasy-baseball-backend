@@ -26,6 +26,7 @@ server.get('/', (req, res) => {
     res.status(200).json('Welcome to Yahoo Fantasy!')
 })
 
+//retrieves an access token and refresh token for the user. Takes the code yahoo provides in the redirect url after user grants access to their info. The url looks like https://yourdomainname.com/{whatever route yahoo redirects to}/?code={code to send to this endpoint}
 server.post('/auth', async (req, res) => {
 
     const auth_header = Buffer.from(`${client_id}:${client_secret}`, `binary`).toString(`base64`)
